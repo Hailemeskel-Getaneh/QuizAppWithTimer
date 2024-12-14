@@ -5,6 +5,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Help from './pages/Help';
 import Header from './components/Header';
+import Login from './pages/login';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

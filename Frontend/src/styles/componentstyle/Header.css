@@ -1,9 +1,10 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
     font-family: Georgia, 'Times New Roman', sans-serif;
 }
+
 .header {
     width: 100%;
     display: flex;
@@ -11,61 +12,125 @@
     align-items: center;
     padding: 0 20px;
     position: fixed;
-    top: 30px;
+    top: 0;
+    background: white;
     z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-.log{
-    color: #FFC107 ;	
-    font-weight: bold;
-    margin-left: 120px;
-}
-
-.link{
-    color:#FFC107 ; 
+.name {
+    margin-left: 20px;
+    color: rgb(56, 56, 232);
     font-size: 20px;
+    font-weight: bold;
 }
 
+.question {
+    font-size: 60px;
+    color: rgb(56, 56, 232);
+    font-weight: bold;
+    animation: circle 6s linear infinite;
+}
+
+@keyframes circle {
+    30% {
+        transform: rotate(360deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .links {
-    justify-content: flex-end;
-    text-decoration: none;
-    font-size: 20px;
-    display: block;
-    text-align: center;
-    font-weight: bold;
     display: flex;
-  
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .one-links {
-    color: red; 
     margin: 0 15px;
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.one-link:hover {
-    color: #cc5d5b;
-    transform: scale(1.05);
+.link {
+    color: rgb(56, 56, 232);
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .link:hover {
-    text-decoration: underline #b3daf6;  
+    transform: scale(1.05);
+    transition: 0.3s ease;
+    color: #ffc107;
 }
 
-.button1{
-    background-color: #FFC107;
+.link:{
+    color: #ffc107;
+}
+
+.button1 {
+    background-color: rgb(56, 56, 232);
     color: white;
     border: none;
-    padding: 15px 32px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
+    border-radius: 20px;
+}
+.button1:hover{
+background-color: #6a11cb;
+transform: scale(1.05);
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(56, 56, 232);
+    margin: 4px 0;
+    transition: 0.3s ease;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .links {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+    }
+
+    .links.open {
+        transform: translateX(0%);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .one-links {
+        margin: 10px 0;
+    }
+}
