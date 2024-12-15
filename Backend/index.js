@@ -4,18 +4,13 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 
-
-
 const app = express();
 
 app.use(cors());
 
 dotenv.config();
 
-
-
 app.use(express.json());
-
 
 const PORT = process.env.PORT ;
 const MONGO_URL = process.env.MongoUrl;
@@ -27,9 +22,6 @@ mongoose.connect(MONGO_URL)
 .catch((err) =>{
     console.error("Databse connection error", err)
 });
-
-
-
 
 app.listen(PORT, () =>{
     console.log(`Server is running at ${PORT}`)
