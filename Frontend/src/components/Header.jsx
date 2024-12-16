@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/componentstyle/Header.css';
 
 export default function Header() {
@@ -10,42 +10,42 @@ export default function Header() {
   };
 
   return (
-    <>
-      <div className="header">
-        <div className="name">
-          <span className='question'>?</span>Quiz
-        </div>
-        <div className={`links ${isMenuOpen ? 'open' : ''}`}>
-          <div className="one-links">
-            <Link className="link" to="/">
-              Home
-            </Link>
-          </div>
-          <div className="one-links">
-            <Link className="link" to="/about">
-              About
-            </Link>
-          </div>
-          <div className="one-links">
-            <Link className="link" to="/help">
-              Help
-            </Link>
-          </div>
-          <div className="one-links">
-            <Link className="link" to="/contact">
-              Contact
-            </Link>
-          </div>
-          <Link to="/login">
-            <button className="button1">Login</button>
-          </Link>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
+    <div className="header">
+      <div className="name">
+        <span>?</span>Quiz
       </div>
-    </>
+
+      {/* Hamburger Icon */}
+      <div className="hamburger" onClick={toggleMenu}>
+        {isMenuOpen ? <span className="close-icon">✖</span> : <span className="menu-icon">☰</span>}
+      </div>
+
+      {/* Navigation Links */}
+      <div className={`links ${isMenuOpen ? 'open' : ''}`}>
+        <div className="one-links">
+          <NavLink className="link" to="/" exact>
+            Home
+          </NavLink>
+        </div>
+        <div className="one-links">
+          <NavLink className="link" to="/about">
+            About
+          </NavLink>
+        </div>
+        <div className="one-links">
+          <NavLink className="link" to="/help">
+            Help
+          </NavLink>
+        </div>
+        <div className="one-links">
+          <NavLink className="link" to="/contact">
+            Contact
+          </NavLink>
+        </div>
+        <NavLink to="/login">
+          <button className="button1">Login</button>
+        </NavLink>
+      </div>
+    </div>
   );
 }
