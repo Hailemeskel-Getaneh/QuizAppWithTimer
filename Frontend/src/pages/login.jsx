@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/pages.css/login.css'; // Adjust the path based on your project structure
+import '../styles/pagesStyle/login.css'; 
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
